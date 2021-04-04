@@ -1,0 +1,11 @@
+.SecondaryDisplay ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.SecondaryDisplay li {
+  list-style: none;
+  text-align: center;
+  font-size: x-large;
+  margin: 8px 0;
+}

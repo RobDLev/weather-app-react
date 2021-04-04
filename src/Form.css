@@ -1,0 +1,13 @@
+.Form form {
+  display: inline;
+  text-align: center;
+}
+
+.Form .btn,
+btn-primary {
+  margin: 5px;
+}
+
+.Form #city-search-bar {
+  margin-top: 15px;
+}
