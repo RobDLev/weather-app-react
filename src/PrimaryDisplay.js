@@ -7,13 +7,8 @@ export default function PrimaryDisplay() {
       <h3 id="current-city">San Francisco, US</h3>
       <h3 id="current-temp">15°C</h3>
       <span className="temp-scale">
-        <a href="#" id="celsius-link">
-          °C
-        </a>
-        |
-        <a href="#" id="fahrenheit-link">
-          °F
-        </a>
+        <button id="celsius-link">°C</button>|
+        <button id="fahrenheit-link">°F</button>
       </span>
       <div>
         <img
