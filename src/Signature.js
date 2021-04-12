@@ -7,6 +7,7 @@ export default function Signature() {
         <a
           href="https://github.com/RobDLev/weather-app-react"
           target="_blank"
+          rel="noreferrer"
           id="github-link"
         >
           Open-source code
