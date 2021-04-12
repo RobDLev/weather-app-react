@@ -4,7 +4,11 @@ export default function Signature() {
   return (
     <div className="Signature">
       <p id="open-source-signature">
-        <a href="https://github.com/RobDLev/weather-app-react" id="github-link">
+        <a
+          href="https://github.com/RobDLev/weather-app-react"
+          target="_blank"
+          id="github-link"
+        >
           Open-source code
         </a>{" "}
         by Robin Levinson
