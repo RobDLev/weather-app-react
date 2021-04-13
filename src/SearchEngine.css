@@ -1,3 +1,24 @@
+.Form form {
+  display: inline;
+  text-align: center;
+}
+
+.Form .btn,
+btn-primary {
+  margin: 5px;
+}
+
+.Form #city-search-bar {
+  margin-top: 5px;
+}
+
+.DateTime #date-and-time {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
 .PrimaryDisplay h3 {
   text-align: center;
   margin-top: 8px;
@@ -30,4 +51,16 @@
 .PrimaryDisplay #weather-description {
   text-align: center;
   text-transform: capitalize;
+}
+
+.SecondaryDisplay ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.SecondaryDisplay li {
+  list-style: none;
+  text-align: center;
+  font-size: x-large;
+  margin: 8px 0;
 }
