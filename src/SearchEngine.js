@@ -7,8 +7,8 @@ export default function SearchEngine() {
   const [results, setResults] = useState("");
 
   const apiKey = `59f62e89b6fe8b8e9e10ac59471b14c9`;
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  let iconUrl = `http://openweathermap.org/img/wn/${results.iconCode}@2x.png`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let iconUrl = `https://openweathermap.org/img/wn/${results.iconCode}@2x.png`;
 
   function updateCity(event) {
     setCity(event.target.value);
