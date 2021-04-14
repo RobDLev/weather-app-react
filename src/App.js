@@ -9,8 +9,8 @@ export default function App() {
         <div className="weather-app-wrapper">
           <div className="weather-app border border-3 border-info rounded px-4 py-3">
             <SearchEngine />
-            <Signature />
           </div>
+          <Signature />
         </div>
       </div>
     </div>
