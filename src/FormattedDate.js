@@ -36,6 +36,13 @@ export default function FormattedDate() {
   let date = now.getDate();
   let year = now.getFullYear();
 
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   return (
     <div className="FormattedDate">
       <div id="date-and-time">
