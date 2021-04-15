@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./SearchEngine.css";
 
 export default function SearchEngine() {
@@ -30,6 +31,8 @@ export default function SearchEngine() {
       humidity: response.data.main.humidity,
     });
   }
+
+  function converttoFahrenheit(event) {}
 
   return (
     <div className="SearchEngine">
@@ -62,12 +65,8 @@ export default function SearchEngine() {
           </div>
         </form>
       </div>
-      <div className="DateTime">
-        <div id="date-and-time">
-          Sunday, 10:52
-          <br />
-          February 28, 2021
-        </div>
+      <div>
+        <FormattedDate />
       </div>
       <div className="row">
         <div className="border border-info rounded col-sm" id="current-weather">
@@ -78,7 +77,9 @@ export default function SearchEngine() {
             <h3 id="current-temp">{results.temperature}°C</h3>
             <span className="temp-scale">
               <button id="celsius-link">°C</button>|
-              <button id="fahrenheit-link">°F</button>
+              <button id="fahrenheit-link" onClick={converttoFahrenheit}>
+                °F
+              </button>
             </span>
             <div>
               <img src={iconUrl} alt={results.description} id="weather-icon" />
