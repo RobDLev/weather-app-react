@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import DataDisplay from "./DataDisplay";
 import "./SearchEngine.css";
 
 export default function SearchEngine() {
+  const [ready, setReady] = useState(false);
   const [city, setCity] = useState("");
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState({});
 
   const apiKey = `59f62e89b6fe8b8e9e10ac59471b14c9`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -30,86 +32,54 @@ export default function SearchEngine() {
       wind: Math.round(response.data.wind.speed),
       humidity: response.data.main.humidity,
     });
+    setReady(true);
   }
 
-  function converttoFahrenheit(event) {}
-
-  return (
-    <div className="SearchEngine">
-      <div className="Form">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-12">
-              <input
-                onChange={updateCity}
-                type="text"
-                className="form-control"
-                placeholder="ex. Paris, France"
-                id="city-search-bar"
-              />
-              <label>Search a Different Location</label>
-              <input
-                className="btn btn-primary"
-                type="submit"
-                value="Search"
-                id="search-button"
-              />
-              <button
-                type="button"
-                className="btn btn-success"
-                id="current-city-button"
-              >
-                Current City
-              </button>
+  if (ready) {
+    return (
+      <div className="SearchEngine">
+        <div className="Form">
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-12">
+                <input
+                  onChange={updateCity}
+                  type="text"
+                  className="form-control"
+                  placeholder="ex. Paris, France"
+                  id="city-search-bar"
+                />
+                <label>Search a Different Location</label>
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Search"
+                  id="search-button"
+                />
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  id="current-city-button"
+                >
+                  Current City
+                </button>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
-      <div>
-        <FormattedDate />
-      </div>
-      <div className="row">
-        <div className="border border-info rounded col-sm" id="current-weather">
-          <div className="PrimaryDisplay">
-            <h3 id="city-main">
-              {results.cityMain}, {results.country}
-            </h3>
-            <h3 id="current-temp">{results.temperature}°C</h3>
-            <span className="temp-scale">
-              <button id="celsius-link">°C</button>|
-              <button id="fahrenheit-link" onClick={converttoFahrenheit}>
-                °F
-              </button>
-            </span>
-            <div>
-              <img src={iconUrl} alt={results.description} id="weather-icon" />
-            </div>
-            <h5 id="weather-description">{results.description}</h5>
-          </div>
+          </form>
         </div>
-        <div className="border border-info rounded col-sm">
-          <div className="SecondaryDisplay">
-            <ul>
-              <li>
-                <i className="fas fa-wind" />
-                <br />
-                Wind Speed:
-                <br />
-                {results.wind} km/h
-                <span id="current-wind-speed" />
-              </li>
-              <li>
-                <i className="bi bi-droplet-half" />
-                <br />
-                Humidity:
-                <br />
-                {results.humidity}%
-                <span id="current-humidity" />
-              </li>
-            </ul>
-          </div>
+        <div>
+          <FormattedDate />
+        </div>
+        <div>
+          <DataDisplay data={results} />
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = `59f62e89b6fe8b8e9e10ac59471b14c9`;
+    let city = "San Francisco";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayResults);
+    return "Loading...";
+  }
 }

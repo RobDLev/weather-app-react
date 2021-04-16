@@ -1,0 +1,45 @@
+.PrimaryDisplay h3 {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.PrimaryDisplay button {
+  border: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  color: #0a58ca;
+}
+
+.PrimaryDisplay img {
+  height: 120%;
+  display: block;
+  margin: 0 auto;
+}
+
+.PrimaryDisplay .temp-scale {
+  font-size: medium;
+  display: block;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.PrimaryDisplay #current-temp {
+  margin-bottom: 0;
+}
+
+.PrimaryDisplay #weather-description {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.SecondaryDisplay ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.SecondaryDisplay li {
+  list-style: none;
+  text-align: center;
+  font-size: x-large;
+  margin: 8px 0;
+}
