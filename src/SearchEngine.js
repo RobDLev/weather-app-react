@@ -25,7 +25,7 @@ export default function SearchEngine() {
     setResults({
       cityMain: response.data.name,
       country: response.data.sys.country,
-      temperature: Math.round(response.data.main.temp),
+      temperature: response.data.main.temp,
       iconCode: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       wind: Math.round(response.data.wind.speed),

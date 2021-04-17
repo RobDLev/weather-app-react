@@ -13,7 +13,7 @@ export default function DataDisplay(props) {
             <h3 id="city-main">
               {props.data.cityMain}, {props.data.country}
             </h3>
-            <TempConversion celcius={props.data.temperature} />
+            <TempConversion celsius={props.data.temperature} />
             <div>
               <img
                 src={iconUrl}
