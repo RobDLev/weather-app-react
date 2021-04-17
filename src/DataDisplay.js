@@ -1,4 +1,5 @@
 import React from "react";
+import TempConversion from "./TempConversion";
 import "./DataDisplay.css";
 
 export default function DataDisplay(props) {
@@ -12,11 +13,7 @@ export default function DataDisplay(props) {
             <h3 id="city-main">
               {props.data.cityMain}, {props.data.country}
             </h3>
-            <h3 id="current-temp">{props.data.temperature}°C</h3>
-            <span className="temp-scale">
-              <button id="celsius-link">°C</button>|
-              <button id="fahrenheit-link">°F</button>
-            </span>
+            <TempConversion celcius={props.data.temperature} />
             <div>
               <img
                 src={iconUrl}
