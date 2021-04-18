@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import CurrentCity from "./CurrentCity";
 import FormattedDate from "./FormattedDate";
 import DataDisplay from "./DataDisplay";
 import "./SearchEngine.css";
@@ -55,13 +56,7 @@ export default function SearchEngine() {
                   value="Search"
                   id="search-button"
                 />
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  id="current-city-button"
-                >
-                  Current City
-                </button>
+                <CurrentCity />
               </div>
             </div>
           </form>

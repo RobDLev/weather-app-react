@@ -18,8 +18,8 @@ export default function TempConversion(props) {
       <div className="TempConversion">
         <h3 id="current-temp">{Math.round(props.celsius)}°C</h3>
         <span className="temp-scale">
-          <button id="celsius-link">°C</button>|
-          <button id="fahrenheit-link" onClick={convertToFahrenheit}>
+          <button id="celsius-button">°C</button>|
+          <button id="fahrenheit-button" onClick={convertToFahrenheit}>
             °F
           </button>
         </span>
@@ -31,10 +31,10 @@ export default function TempConversion(props) {
       <div className="TempConversion">
         <h3 id="current-temp">{Math.round(fahrenheit)}°F</h3>
         <span className="temp-scale">
-          <button id="celsius-link" onClick={convertToCelsius}>
+          <button id="celsius-button" onClick={convertToCelsius}>
             °C
           </button>
-          |<button id="fahrenheit-link">°F</button>
+          |<button id="fahrenheit-button">°F</button>
         </span>
       </div>
     );
