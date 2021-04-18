@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CurrentCity from "./CurrentCity";
 import FormattedDate from "./FormattedDate";
 import DataDisplay from "./DataDisplay";
 import "./SearchEngine.css";
@@ -19,6 +18,18 @@ export default function SearchEngine() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    axios.get(apiUrl).then(displayResults);
+  }
+
+  function showPosition(event) {
+    navigator.geolocation.getCurrentPosition(getCurrentCityData);
+  }
+
+  function getCurrentCityData(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    const apiKey = `59f62e89b6fe8b8e9e10ac59471b14c9`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayResults);
   }
 
@@ -56,7 +67,14 @@ export default function SearchEngine() {
                   value="Search"
                   id="search-button"
                 />
-                <CurrentCity />
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  id="current-city-button"
+                  onClick={showPosition}
+                >
+                  Current City
+                </button>
               </div>
             </div>
           </form>
